@@ -29,7 +29,7 @@ class CIPDGOL:
         influence,
         seed=None,
         clip=False,
-        store_history=True,
+        store_history=False,
     ):
         self.rng = (
             np.random.default_rng(seed) if seed is not None else np.random.default_rng()
@@ -192,7 +192,10 @@ def parse_args(args):
         "-x", "--clip", action="store_true", help="Clip state values between 0 and 1"
     )
     argp.add_argument(
-        "-t", "--store-history", action="store_true", help="Store state history"
+        "-t",
+        "--store-history",
+        action="store_true",
+        help="Store state history (disabled by default)",
     )
 
     argp.add_argument(

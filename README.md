@@ -58,7 +58,7 @@ python cipdgol.py --birth-threshold 0.3 0.7 --survival-threshold 0.2 0.9 --time-
 - **-f / --fps** – Frames per second for export.
 - **-o / --output-path** – Path to save exported video.
 - **-x / --clip** – Clip cell values between 0 and 1.
-- **-t / --store-history** – Store historical grid states.
+- **-t / --store-history** – Store historical grid states (disabled by default).
 
 ## Exporting
 Export your simulation to video:
