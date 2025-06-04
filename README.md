@@ -80,3 +80,10 @@ python cipdgol.py --load-state state.npy --time-steps 100 --save-state next.npy 
 ## Contribute
 Feel free to fork, improve, and submit pull requests. Let's evolve EvolveScape together!
 
+## Testing
+Install `pytest` and run the test suite with:
+```bash
+pip install pytest
+pytest
+```
+
