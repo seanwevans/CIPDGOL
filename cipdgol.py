@@ -29,7 +29,7 @@ class CIPDGOL:
         influence,
         seed=None,
         clip=False,
-        store_history=True,
+        store_history=False,
     ):
         self.rng = (
             np.random.default_rng(seed) if seed is not None else np.random.default_rng()
@@ -194,7 +194,10 @@ def parse_args(args):
         "-x", "--clip", action="store_true", help="Clip state values between 0 and 1"
     )
     argp.add_argument(
-        "-t", "--store-history", action="store_true", help="Store state history"
+        "-t",
+        "--store-history",
+        action="store_true",
+        help="Store state history (disabled by default)",
     )
 
     argp.add_argument(
@@ -217,6 +220,16 @@ def parse_args(args):
     argp.add_argument(
         "-o", "--output-path", type=str, help="Output path for video export"
     )
+    argp.add_argument(
+        "--save-state",
+        type=str,
+        help="Path to save the final simulation state",
+    )
+    argp.add_argument(
+        "--load-state",
+        type=str,
+        help="Path to load a saved simulation state",
+    )
 
     return argp.parse_args()
 
@@ -238,6 +251,9 @@ def main(args):
     }
     game = CIPDGOL(**cipdgol_params)
 
+    if params.load_state:
+        game.load_state(params.load_state)
+
     export_params = {
         "grid_size": tuple(params.grid_size),
         "time_steps": params.time_steps,
@@ -246,9 +262,9 @@ def main(args):
         "output_path": params.output_path,
     }
     game.export(**export_params)
+
     if params.store_history:
         game.export_history(f"{hash(game)}.npy")
-
 
 if __name__ == "__main__":
     main(sys.argv[1:])
