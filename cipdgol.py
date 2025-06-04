@@ -94,6 +94,8 @@ class CIPDGOL:
 
     def _initialize_state(self, grid_size):
         self._state = self.rng.uniform(0, 1, grid_size)
+        self._idx = 0
+        self._state_history.clear()
 
     def simulate(self, grid_size=(512, 512), time_steps=100, real_time=False):
         """simulates for time_steps steps"""
@@ -244,7 +246,8 @@ def main(args):
         "output_path": params.output_path,
     }
     game.export(**export_params)
-    game.export_history(f"{hash(game)}.npy")
+    if params.store_history:
+        game.export_history(f"{hash(game)}.npy")
 
 
 if __name__ == "__main__":
