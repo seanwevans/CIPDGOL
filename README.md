@@ -37,11 +37,13 @@ usage: cipdgol.py [--birth-threshold MIN MAX]
                   [-g WIDTH HEIGHT] [-n STEPS]
                   [-f FPS] [-c CMAP]
                   [-o OUTPUT]
+                  [--save-state FILE]
+                  [--load-state FILE]
 ```
 
 ### Example
 ```bash
-python cipdgol.py --birth-threshold 0.3 0.7 --survival-threshold 0.2 0.9 --time-steps 500 --fps 60 -g 1024 1024 -o simulation.mp4
+python cipdgol.py --birth-threshold 0.3 0.7 --survival-threshold 0.2 0.9 --time-steps 500 --fps 60 -g 1024 1024 -o simulation.mp4 --save-state final.npy
 ```
 
 ## Parameters Explained
@@ -66,13 +68,13 @@ python cipdgol.py -o output.mp4
 ```
 
 ## Save and Load States
-Save the current state:
+Save the current state while exporting:
 ```bash
-python cipdgol.py --save-state state.npy
+python cipdgol.py -o output.mp4 --save-state state.npy
 ```
-Load a previously saved state:
+Load a previously saved state and continue:
 ```bash
-python cipdgol.py --load-state state.npy
+python cipdgol.py --load-state state.npy --time-steps 100 --save-state next.npy -o next.mp4
 ```
 
 ## Contribute
