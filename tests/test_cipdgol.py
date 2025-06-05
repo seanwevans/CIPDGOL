@@ -19,7 +19,7 @@ def test_simulation_step():
         seed=42,
     )
 
-    sim = game.simulate(grid_size=(8, 8), time_steps=2)
+    sim = game.simulate(grid_size=(8, 8), time_steps=2, updates_per_step=2)
     state0 = next(sim)
     state1 = next(sim)
 
