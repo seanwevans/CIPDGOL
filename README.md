@@ -87,3 +87,9 @@ pip install pytest
 pytest
 ```
 
+For style checks, install `flake8` and run it from the project root:
+```bash
+pip install flake8
+flake8
+```
+

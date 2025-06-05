@@ -266,5 +266,6 @@ def main(args):
     if params.store_history:
         game.export_history(f"{hash(game)}.npy")
 
+
 if __name__ == "__main__":
     main(sys.argv[1:])
