@@ -76,6 +76,9 @@ Load a previously saved state and continue:
 ```bash
 python cipdgol.py --load-state state.npy --time-steps 100 --save-state next.npy -o next.mp4
 ```
+When a state file is loaded, `cipdgol.py` continues exactly from that grid
+instead of starting a new one. The `--grid-size` option is ignored in this
+situation, so the exported video begins with the loaded state.
 
 ## Contribute
 Feel free to fork, improve, and submit pull requests. Let's evolve EvolveScape together!
