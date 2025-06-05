@@ -99,7 +99,8 @@ class CIPDGOL:
 
     def simulate(self, grid_size=(512, 512), time_steps=100, real_time=False):
         """simulates for time_steps steps"""
-        self._initialize_state(grid_size)
+        if self._state is None:
+            self._initialize_state(grid_size)
 
         if time_steps > 0:
             looper = range(time_steps)
@@ -124,7 +125,8 @@ class CIPDGOL:
     ):
         """exports animation to video"""
 
-        self._initialize_state(grid_size)
+        if self._state is None:
+            self._initialize_state(grid_size)
 
         if output_path is None:
             output_path = f"{uuid.uuid4()}.mp4"
