@@ -35,7 +35,7 @@ usage: cipdgol.py [--birth-threshold MIN MAX]
                   [--influence FLOAT]
                   [-s SEED] [-x] [-t]
                   [-g WIDTH HEIGHT] [-n STEPS]
-                  [-f FPS] [-c CMAP]
+                  [-f FPS] [--updates-per-step INT] [-c CMAP]
                   [-o OUTPUT]
                   [--save-state FILE]
                   [--load-state FILE]
@@ -56,6 +56,7 @@ python cipdgol.py --birth-threshold 0.3 0.7 --survival-threshold 0.2 0.9 --time-
 - **-g / --grid-size** – Grid size (width, height).
 - **-n / --time-steps** – Number of simulation steps.
 - **-f / --fps** – Frames per second for export.
+- **--updates-per-step** – Number of internal updates performed each step.
 - **-o / --output-path** – Path to save exported video.
 - **-x / --clip** – Clip cell values between 0 and 1.
 - **-t / --store-history** – Store historical grid states (disabled by default).

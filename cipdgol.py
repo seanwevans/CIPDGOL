@@ -97,7 +97,13 @@ class CIPDGOL:
         self._idx = 0
         self._state_history.clear()
 
-    def simulate(self, grid_size=(512, 512), time_steps=100, real_time=False):
+    def simulate(
+        self,
+        grid_size=(512, 512),
+        time_steps=100,
+        real_time=False,
+        updates_per_step=2,
+    ):
         """simulates for time_steps steps"""
         self._initialize_state(grid_size)
 
@@ -108,8 +114,8 @@ class CIPDGOL:
 
         for i in looper:
             yield self._state
-            self._update()
-            self._update()
+            for _ in range(updates_per_step):
+                self._update()
             if real_time:
                 plt.imshow(self._state, cmap="magma", vmin=0, vmax=1)
                 plt.pause(0.01)
@@ -121,6 +127,7 @@ class CIPDGOL:
         fps=30,
         cmap="magma",
         output_path=None,
+        updates_per_step=2,
     ):
         """exports animation to video"""
 
@@ -143,8 +150,8 @@ class CIPDGOL:
                 end="\r",
             )
 
-            self._update()
-            self._update()
+            for _ in range(updates_per_step):
+                self._update()
             cax.set_array(self._state)
             self._idx += 1
             return (cax,)
@@ -215,6 +222,12 @@ def parse_args(args):
         "-f", "--fps", type=int, default=30, help="Frames per second for export"
     )
     argp.add_argument(
+        "--updates-per-step",
+        type=int,
+        default=2,
+        help="Number of internal updates per simulation step",
+    )
+    argp.add_argument(
         "-c", "--cmap", type=str, default="magma", help="Colormap for visualization"
     )
     argp.add_argument(
@@ -260,6 +273,7 @@ def main(args):
         "fps": params.fps,
         "cmap": params.cmap,
         "output_path": params.output_path,
+        "updates_per_step": params.updates_per_step,
     }
     game.export(**export_params)
 
