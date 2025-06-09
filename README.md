@@ -10,10 +10,11 @@
 - **Track History** – Save the entire history of your automata states.
 
 ## Installation
-Make sure you have Python 3.8+ and the necessary dependencies:
+Make sure you have Python 3.8+ and install the dependencies listed in
+`requirements.txt`:
 
 ```bash
-pip install numpy matplotlib scipy
+pip install -r requirements.txt
 ```
 
 ## Quick Start
@@ -81,9 +82,9 @@ python -m cipdgol --load-state state.npy --time-steps 100 --save-state next.npy 
 Feel free to fork, improve, and submit pull requests. Let's evolve EvolveScape together!
 
 ## Testing
-Install `pytest` and run the test suite with:
+Install the dependencies from `requirements.txt` and run the test suite with:
 ```bash
-pip install pytest
+pip install -r requirements.txt
 pytest
 ```
 
