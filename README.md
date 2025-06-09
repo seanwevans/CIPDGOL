@@ -20,14 +20,14 @@ pip install numpy matplotlib scipy
 Run a simulation with default parameters:
 
 ```bash
-python cipdgol.py
+python -m cipdgol
 ```
 
 ## Command Line Options
 Customize the simulation with various parameters:
 
 ```bash
-usage: cipdgol.py [--birth-threshold MIN MAX]
+usage: python -m cipdgol [--birth-threshold MIN MAX]
                   [--survival-threshold MIN MAX]
                   [--decay-rate FLOAT]
                   [--birth-rate FLOAT]
@@ -43,7 +43,7 @@ usage: cipdgol.py [--birth-threshold MIN MAX]
 
 ### Example
 ```bash
-python cipdgol.py --birth-threshold 0.3 0.7 --survival-threshold 0.2 0.9 --time-steps 500 --fps 60 -g 1024 1024 -o simulation.mp4 --save-state final.npy
+python -m cipdgol --birth-threshold 0.3 0.7 --survival-threshold 0.2 0.9 --time-steps 500 --fps 60 -g 1024 1024 -o simulation.mp4 --save-state final.npy
 ```
 
 ## Parameters Explained
@@ -64,17 +64,17 @@ python cipdgol.py --birth-threshold 0.3 0.7 --survival-threshold 0.2 0.9 --time-
 Export your simulation to video:
 
 ```bash
-python cipdgol.py -o output.mp4
+python -m cipdgol -o output.mp4
 ```
 
 ## Save and Load States
 Save the current state while exporting:
 ```bash
-python cipdgol.py -o output.mp4 --save-state state.npy
+python -m cipdgol -o output.mp4 --save-state state.npy
 ```
 Load a previously saved state and continue:
 ```bash
-python cipdgol.py --load-state state.npy --time-steps 100 --save-state next.npy -o next.mp4
+python -m cipdgol --load-state state.npy --time-steps 100 --save-state next.npy -o next.mp4
 ```
 
 ## Contribute
