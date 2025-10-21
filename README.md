@@ -1,4 +1,5 @@
 # EvolveScape - Cellular Automata on Steroids
+<img width="256" alt="Luminous Infinity on Dark Teal" src="https://github.com/user-attachments/assets/cdd42c66-b680-4c3b-ba1e-f524bc68993b" />
 
 **EvolveScape** is a dynamic and visually stunning cellular automaton simulator that takes inspiration from Conway's Game of Life but evolves it into an organic, fluid system driven by influence propagation, decay, and survival mechanics. This is more than just a Game of Life clone - it's a canvas for digital ecosystems.
 
